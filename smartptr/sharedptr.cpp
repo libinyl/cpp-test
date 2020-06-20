@@ -43,19 +43,10 @@ TEST(UNIQUEPTR_TEST, make) {
 }
 #endif
 
-TEST(UNIQUEPTR_TEST, move) {
-    std::unique_ptr<Base> basep1(new Base);
-    basep1->value = 2;
-    std::unique_ptr<Base> basep2;
-    basep2 = std::move(basep1);      // 通过 move 转移所有权. 原型是 unique_ptr& operator= (unique_ptr&& x) noexcept;
-    ASSERT_EQ(basep1.get(), nullptr);// 转移后原指针为 null
-    ASSERT_EQ(basep2->value, 2);
-}
 
 // 调用拷贝构造或赋值后, 原有指针被置为 null
 TEST(UNIQUEPTR_TEST, cannot_copy) {
     std::unique_ptr<Base> basep(new Base);
-    //std::unique_ptr<Base> basep2(basep); //无法拷贝  unique_ptr& operator= (const unique_ptr&) = delete;
     User u;
     u.funcPassUniquePtr(basep);     // 只能传引用
     ASSERT_NE(basep.get(), nullptr);// 拷贝后原指针不会为 null.

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(cpp-test CXX)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 11)
 set(FINAL_TARGET cpp-test)
 
 find_package(GTest REQUIRED)
