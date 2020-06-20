@@ -24,6 +24,10 @@ public:
 #endif
     void funcPassUniquePtr(std::unique_ptr<Base> &basep) {
     }
+    void funcPassSharedPtrValue(std::shared_ptr<Base> basep) {
+    }
+    void funcPassSharedPtrRef(std::shared_ptr<Base> &basep) {
+    }
 };
 
 #endif//CPP_TEST_COMMON_H

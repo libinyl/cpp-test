@@ -1,7 +1,6 @@
 #include "common.h"
 #include <gtest/gtest.h>
 
-bool Base::exist = false;
 
 // unique_ptr 相对于 auto_ptr, 禁止了拷贝和赋值; 使用移动语义转移所有权.
 
