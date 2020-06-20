@@ -1,8 +1,4 @@
 file(GLOB SOURCEFILE *.cpp)
 
 STRING(REGEX REPLACE ".*/(.*)" "\\1" CURRENT_FOLDER ${CMAKE_CURRENT_SOURCE_DIR})
-
 add_library(${CURRENT_FOLDER} OBJECT ${SOURCEFILE})
-set_target_properties(${CURRENT_FOLDER} PROPERTIES
-        COMPILE_FLAGS "-pthread"
-        LINK_FLAGS "-pthread")

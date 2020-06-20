@@ -1,19 +1,17 @@
 cmake_minimum_required(VERSION 3.0)
 project(cpp-test CXX)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 11)
+set(FINAL_TARGET cpp-test)
 
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
-file(GLOB SOURCEFILE *.cpp)
-
 add_subdirectory(pthread)
+add_subdirectory(smartptr)
 
-add_executable(cpp-test ${SOURCEFILE})
-target_link_libraries(cpp-test ${GTEST_BOTH_LIBRARIES})
-
-
+add_executable(${FINAL_TARGET} main.cpp)
+target_link_libraries(${FINAL_TARGET} ${GTEST_BOTH_LIBRARIES} pthread smartptr)
 
 
 
